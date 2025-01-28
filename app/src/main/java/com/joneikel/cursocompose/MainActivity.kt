@@ -18,13 +18,18 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            mesageHillo()
+            mensageCard( name = "Joneikel")
         }
     }
 }
 
 @Composable
-fun mesageHillo() {
-    Text(text = "Hola Mundo con compose")
+fun mensageCard(name: String = "Joneikel") {
+    Text(text = "Hola Mundo con compose $name")
+}
 
+@Preview
+@Composable
+fun PreviewMensageCard() {
+    mensageCard(name = "Joneikel")
 }
