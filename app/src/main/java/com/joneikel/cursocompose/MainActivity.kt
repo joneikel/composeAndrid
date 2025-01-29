@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -18,13 +19,23 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            mensageCard( name = "Joneikel")
+            Column {
+                nameCard(name = "Inicio")
+                mensageCard( name = "Joneikel")
+            }
+
         }
     }
 }
 
 @Composable
-fun mensageCard(name: String = "Joneikel") {
+fun nameCard(name: String = "Joneikel") {
+    Text(text = "$name")
+
+}
+
+@Composable
+fun mensageCard(name: String) {
     Text(text = "Hola Mundo con compose $name")
 }
 
