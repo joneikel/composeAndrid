@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,6 +13,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.joneikel.cursocompose.ui.theme.CursoComposeTheme
 
@@ -20,22 +22,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Column {
-                Row {
-                    Text(text = " Hola Mundo ")
-                    Text(text = " Hola Mundo ")
-                    Text(text = " Hola Mundo ")
-                }
+            Row {
+                Image(
+                    painter = painterResource(id = R.drawable.fragata),
+                    contentDescription = null,
 
-                Row {
-                    Text(text = " Hola Mundo ")
-                    Text(text = " Hola Mundo ")
-                    Text(text = " Hola Mundo ")
-                }
-                Row {
-                    Text(text = " Hola Mundo ")
-                    Text(text = " Hola Mundo ")
-                    Text(text = " Hola Mundo ")
+                    )
+                Column {
+                    nameCard()
+                    mensageCard(name = "Joneikel")
                 }
             }
 
