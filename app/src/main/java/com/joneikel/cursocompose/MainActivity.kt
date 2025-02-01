@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
                 Column {
                     nameCard()
                     Spacer(modifier = Modifier.height(10.dp))
-                    mensageCard(name = "Joneikel")
+                    mensageCard(Mensaje("Joneikel", "Mensaje de Joneikel"))
 
                 }
             }
@@ -49,6 +49,8 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+data class Mensaje(val name: String, val desc: String)
+
 @Composable
 fun nameCard(name: String = "Joneikel") {
     Text(text = "$name")
@@ -56,12 +58,13 @@ fun nameCard(name: String = "Joneikel") {
 }
 
 @Composable
-fun mensageCard(name: String) {
-    Text(text = "Hola Mundo con compose $name")
+fun mensageCard(msg: Mensaje) {
+    Text(msg.name)
+    Text(msg.desc)
 }
 
 @Preview
 @Composable
 fun PreviewMensageCard() {
-    mensageCard(name = "Joneikel")
+    mensageCard(msg = Mensaje("Joneikel", "Mensaje de Joneikel")    )
 }
