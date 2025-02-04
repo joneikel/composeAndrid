@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -27,8 +28,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
         setContent {
-            mensageCard(Mensaje("Joneikel", "Mensaje de Joneikel"))
-
+            CursoComposeTheme {
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    mensageCard(Mensaje("Joneikel", "Mensaje de Joneikel"))
+                }
+            }
         }
     }
 }
@@ -43,8 +47,6 @@ fun nameCard(name: String = "Joneikel") {
 
 @Composable
 fun mensageCard(msg: Mensaje) {
-
-
     Row(modifier = Modifier.padding(all = 16.dp)) {
         Spacer(modifier = Modifier.height(50.dp))
         Image(
@@ -66,5 +68,9 @@ fun mensageCard(msg: Mensaje) {
 @Preview
 @Composable
 fun PreviewMensageCard() {
-    mensageCard(msg = Mensaje("Joneikel", "Mensaje de Joneikel"))
+    CursoComposeTheme {
+        Surface {
+            mensageCard(Mensaje("Joneikel", "Mensaje de Joneikel"))
+        }
+    }
 }
