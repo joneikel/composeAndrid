@@ -27,23 +27,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
         setContent {
-            Row(modifier = Modifier.padding(all = 16.dp)) {
-                Spacer(modifier = Modifier.height(50.dp))
-                Image(
-                    painter = painterResource(id = R.drawable.fragata),
-                    contentDescription = null,
-                    modifier = Modifier.size(50.dp)
-
-                )
-                Spacer(modifier = Modifier.width(5.dp))
-                Column {
-                    nameCard()
-                    Spacer(modifier = Modifier.height(10.dp))
-                    mensageCard(Mensaje("Joneikel", "Mensaje de Joneikel"))
-
-                }
-            }
-
+            mensageCard(Mensaje("Joneikel", "Mensaje de Joneikel"))
 
         }
     }
@@ -59,12 +43,28 @@ fun nameCard(name: String = "Joneikel") {
 
 @Composable
 fun mensageCard(msg: Mensaje) {
-    Text(msg.name)
-    Text(msg.desc)
+
+
+    Row(modifier = Modifier.padding(all = 16.dp)) {
+        Spacer(modifier = Modifier.height(50.dp))
+        Image(
+            painter = painterResource(id = R.drawable.fragata),
+            contentDescription = null,
+            modifier = Modifier.size(50.dp)
+
+        )
+        Spacer(modifier = Modifier.width(5.dp))
+        Column {
+            Text(msg.name)
+            Spacer(modifier = Modifier.height(10.dp))
+            Text(msg.desc)
+
+        }
+    }
 }
 
 @Preview
 @Composable
 fun PreviewMensageCard() {
-    mensageCard(msg = Mensaje("Joneikel", "Mensaje de Joneikel")    )
+    mensageCard(msg = Mensaje("Joneikel", "Mensaje de Joneikel"))
 }
