@@ -34,7 +34,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             CursoComposeTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    mensageCard(Mensaje("Joneikel", "Mensaje de Joneikel"))
+
+                    mensageCard(
+                        Mensaje(
+                            "Joneikel",
+                            "Mis saludos campeon, vas para la reunion? a que hora es? yo no podre ir, estoy en otra reunion"
+                        )
+                    )
                 }
             }
         }
@@ -64,9 +70,13 @@ fun mensageCard(msg: Mensaje) {
         )
         Spacer(modifier = Modifier.width(5.dp))
         Column {
-            Text(msg.name, color = MaterialTheme.colorScheme.secondary)
+            Text(
+                msg.name,
+                color = MaterialTheme.colorScheme.secondary,
+                style = MaterialTheme.typography.titleMedium
+            )
             Spacer(modifier = Modifier.height(10.dp))
-            Text(msg.desc)
+            Text(text = msg.desc, style = MaterialTheme.typography.bodySmall)
 
         }
     }
@@ -77,7 +87,12 @@ fun mensageCard(msg: Mensaje) {
 fun PreviewMensageCard() {
     CursoComposeTheme {
         Surface {
-            mensageCard(Mensaje("Joneikel", "Mensaje de Joneikel"))
+            mensageCard(
+                Mensaje(
+                    "Joneikel",
+                    "Mis saludos campeon, vas para la reunion? a que hora es? yo no podre ir, estoy en otra reunion"
+                )
+            )
         }
     }
 }
