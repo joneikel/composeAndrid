@@ -1,5 +1,6 @@
 package com.joneikel.cursocompose
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -82,6 +83,13 @@ fun mensageCard(msg: Mensaje) {
         }
     }
 }
+
+@Preview(name = "Light Mode")
+@Preview(
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    showBackground = true,
+    name = "Dark Mode"
+)
 
 @Preview
 @Composable
