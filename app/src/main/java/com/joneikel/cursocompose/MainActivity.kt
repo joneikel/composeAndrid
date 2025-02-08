@@ -35,13 +35,36 @@ class MainActivity : ComponentActivity() {
         setContent {
             CursoComposeTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-
+                    Column {
                     mensageCard(
                         Mensaje(
                             "Joneikel",
                             "Mis saludos campeon, vas para la reunion? a que hora es? yo no podre ir, estoy en otra reunion"
                         )
                     )
+                    mensageCard(
+                        Mensaje(
+                            "Joneikel",
+                            "Por favor avisarme cuando termine tu reunion"
+                        )
+                    )
+                    mensageCard(
+                        Mensaje(
+                            "Joneikel",
+                            "Me puedes dar una sintesis de la reunion?"
+                        )
+                    )
+                    mensageCard(
+                        Mensaje(
+                            "Joneikel",
+                            "Lista de puntos a seguir: \n" +
+                                    "1.- Planificar\n" +
+                                    "2.- Organizar\n" +
+                                    "3.- Delegar\n" +
+                                    "4.- Terminar\n"
+                        )
+                    )}
+
                 }
             }
         }
@@ -73,11 +96,16 @@ fun mensageCard(msg: Mensaje) {
         Column {
             Text(
                 msg.name,
-                color = MaterialTheme.colorScheme.primary, style = MaterialTheme.typography.titleMedium
+                color = MaterialTheme.colorScheme.primary,
+                style = MaterialTheme.typography.titleMedium
             )
             Spacer(modifier = Modifier.height(10.dp))
             Surface(shape = MaterialTheme.shapes.medium, shadowElevation = 1.dp) {
-                Text(text = msg.desc, modifier = Modifier.padding(all = 4.dp)  , style = MaterialTheme.typography.bodySmall)
+                Text(
+                    text = msg.desc,
+                    modifier = Modifier.padding(all = 4.dp),
+                    style = MaterialTheme.typography.bodySmall
+                )
             }
 
         }
