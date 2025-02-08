@@ -72,11 +72,12 @@ fun mensageCard(msg: Mensaje) {
         Column {
             Text(
                 msg.name,
-                color = MaterialTheme.colorScheme.secondary,
-                style = MaterialTheme.typography.titleMedium
+                color = MaterialTheme.colorScheme.primary, style = MaterialTheme.typography.titleMedium
             )
             Spacer(modifier = Modifier.height(10.dp))
-            Text(text = msg.desc, style = MaterialTheme.typography.bodySmall)
+            Surface(shape = MaterialTheme.shapes.medium, shadowElevation = 1.dp) {
+                Text(text = msg.desc, modifier = Modifier.padding(all = 4.dp)  , style = MaterialTheme.typography.bodySmall)
+            }
 
         }
     }
